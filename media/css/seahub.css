@@ -1966,7 +1966,14 @@ textarea:-moz-placeholder {/* for FF */
     width:13%;
 }
 .fileupload-progress {
-    margin-top:10px;
+    position:fixed;
+    width:35%;
+    padding: 10px 12px;
+    border:1px solid #bbb;
+    border-radius:5px;
+    bottom:10px;
+    right:10px;
+    background:#fff;
 }
 .ui-progressbar,
 .progress {
