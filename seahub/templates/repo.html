@@ -54,6 +54,7 @@
     </div>
     {% endif %}
     <div id="upload-file-dialog" class="hide">
+        <a href="#" class="close">close</a>
         <h3>{% trans "Upload Files" %}</h3>
         {% if no_quota %}
         <p class="error">{% trans "The owner of this library has run out of space." %}</p>
@@ -946,6 +947,20 @@ $('#upload-file').click(function () {
 {% else %}
 $('#upload-file').click(function () {
     var uploaded_files = [];
+    $('#upload-file-dialog').css({
+        'width': '600px',
+        'height': $(window).height()/1.5,
+        'position': 'fixed',
+        'top': '10px',
+        'right': '10px',
+        'background': '#fff',
+        'border': '1px solid #ddd'
+    }).removeClass('hide');
+    $('#upload-file-dialog .close').click(function() {
+        $('#upload-file-dialog').addClass('hide');
+        return false;
+    });
+    /*
     $('#upload-file-dialog').modal({
         focus:false,
         containerCss: {width:600, height:$(window).height()/1.5},
@@ -990,6 +1005,7 @@ $('#upload-file').click(function () {
         }
     });
     $('.simplemodal-wrap').css({'overflow':'auto'}); // for ie
+    */
 
     var form = $('#upload-file-form'),
         parent_dir = $('input[name="parent_dir"]', form);
